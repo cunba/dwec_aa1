@@ -1,29 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <main>
-    <ul></ul>
-  </main>
-  <script>
-    let drawData = (data) => {
-      data.forEach(category => {
-        let parent = document.getElementsByTagName('ul')[0]
-        let child = document.createElement('li')
-        // child.innerText = JSON.stringify(category)
-        child.innerText = category.name
-        parent.appendChild(child)
-      })
-    }
+<html lang="es">
 
-    fetch("http://localhost:3000/categories")
-      .then(res => res.json())
-      .then(data => drawData(data))
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pass Saver</title>
+    <link rel="stylesheet" href="styles/index.css">
+  </head>
+
+  <body>
+
+    <h2 class="window-title">Pass saver</h2>
+
+    <div class="window">
+
+      <div class="buttons">
+        <button id="add-category" class="active">Add category</button>
+        <button id="add-site">Add site</button>
+      </div>
+
+      <div class="categories-list">
+        <h3><strong>Categories</strong></h3>
+
+        <ul>
+        </ul>
+      </div>
+
+      <div class="pass-list">
+        <table>
+          <thead>
+            <tr>
+              <th>Site</th>
+              <th>User</th>
+              <th>Created at</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="clear"></div>
+
+    </div>
+
+    <script src="js/index.js"></script>
+
+  </body>
+
 </html>

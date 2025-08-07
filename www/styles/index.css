@@ -1,0 +1,109 @@
+:root {
+    --main-color: #eee;
+    --selected-color: #0d6efd;
+    --border-color: #ccc;
+    --background-color: #cfe2ff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    border: 1px solid var(--border-color);
+    width: 800px;
+    padding: 20px;
+    margin: 50px auto;
+    position: relative;
+}
+
+.buttons {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.buttons button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--main-color);
+    margin-right: 3px;
+}
+
+#add-category {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#add-site {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.buttons .active {
+    background-color: var(--selected-color);
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.categories-list {
+    float: left;
+    width: 25%;
+    border: 1px solid var(--border-color);
+}
+
+.categories-list h3 {
+    border-bottom: 1px solid var(--border-color);
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+}
+
+.categories-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categories-list li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.categories-list .selected {
+    background-color: var(--background-color);
+}
+
+.pass-list {
+    float: right;
+    width: 70%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: var(--selected-color);
+    color: var(--main-color);
+}
+
+.actions img {
+    width: 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.clear {
+    clear: both;
+}
+
+.window-title {
+    font-weight: bold;
+    margin: 0 0 10px;
+}
