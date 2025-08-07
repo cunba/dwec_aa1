@@ -1,8 +1,8 @@
 :root {
     --main-color: #eee;
-    --selected-color: #0d6efd;
+    --second-color: #0d6efd;
     --border-color: #ccc;
-    --background-color: #cfe2ff;
+    --selected-color: #cfe2ff;
 }
 
 body {
@@ -43,7 +43,7 @@ body {
 }
 
 .buttons .active {
-    background-color: var(--selected-color);
+    background-color: var(--second-color);
     color: var(--main-color);
     font-weight: bold;
 }
@@ -73,7 +73,11 @@ body {
 }
 
 .categories-list .selected {
-    background-color: var(--background-color);
+    background-color: var(--selected-color);
+}
+
+.categories-list .not-selected {
+    background-color: "none";
 }
 
 .pass-list {
@@ -94,7 +98,7 @@ td {
 }
 
 th {
-    background-color: var(--selected-color);
+    background-color: var(--second-color);
     color: var(--main-color);
 }
 
