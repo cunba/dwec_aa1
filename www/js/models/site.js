@@ -19,7 +19,7 @@ class Site {
         this.updatedAt = site.updatedAt
     }
 
-    drawSite(document, moment) {
+    drawSite(document) {
         let parent = document.createElement('tr')
 
         let name = document.createElement('td')
