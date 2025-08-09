@@ -21,4 +21,15 @@ export class CategoriesController {
             .then(callback)
             .catch(err => console.log(err))
     }
+
+    delete(id, callback) {
+        fetch(`${this.baseUrl}/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-type': 'application/json'
+            },
+        })
+            .then(callback)
+            .catch(err => console.log(err))
+    }
 }
