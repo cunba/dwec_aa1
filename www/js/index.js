@@ -13,11 +13,14 @@ window.onload = () => {
 
     categoriesController.getAll(drawCategories)
 
-    const addCategoryBtn = document.getElementById('add-category')
-    addCategoryBtn.onclick = onAddCategoryClick
-
     const addSiteBtn = document.getElementById('add-site')
     addSiteBtn.onclick = onAddSiteClick
+
+    const submitCategoryBtn = document.getElementById('submit-category-btn')
+    submitCategoryBtn.onclick = onSubmitCategoryClick
+
+    const categoryNameModal = document.getElementById('category-name-modal')
+    categoryNameModal.onblur = validateNameField
 }
 
 const drawCategories = (data) => {
@@ -64,11 +67,28 @@ const onCategoryClicked = (event) => {
     }
 }
 
-const onAddCategoryClick = (event) => {
-    const button = event.target
-}
-
 const onAddSiteClick = () => {
     localStorage.setItem('categoryId', currentCategory.id.split('-')[0])
     window.location.href = 'add.html'
+}
+
+const onSubmitCategoryClick = () => {
+    const categoryName = document.getElementById('category-name-modal')
+
+    if (categoryName.value === '' || categoryName.value === null || categoryName.value === undefined)
+        categoryName.classList.add('is-invalid')
+    else {
+        console.log({ name: categoryName.value })
+        categoriesController.create({ name: categoryName.value }, () => location.reload())
+    }
+}
+
+const validateNameField = (event) => {
+    const value = event.target.value
+    const field = event.target
+
+    if (value === '' || value === null || value === undefined)
+        field.classList.add('is-invalid')
+    else
+        field.classList.remove('is-invalid')
 }

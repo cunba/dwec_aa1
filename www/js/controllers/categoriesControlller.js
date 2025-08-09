@@ -9,4 +9,16 @@ export class CategoriesController {
             .then(callback)
             .catch(err => console.log(err))
     }
+
+    create(category, callback) {
+        fetch(this.baseUrl, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(category)
+        })
+            .then(callback)
+            .catch(err => console.log(err))
+    }
 }
