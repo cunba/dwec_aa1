@@ -1,6 +1,11 @@
+import { SitesController } from "./controllers/sitesController.js"
 import { Site } from "./models/site.js"
 
+let siteController
+
 window.onload = () => {
+    siteController = new SitesController()
+
     const cancelBtn = document.getElementsByClassName('cancel-btn')[0]
     cancelBtn.onclick = () => window.location.href = 'index.html'
 
@@ -59,7 +64,7 @@ const createSite = (event) => {
         const categoryId = localStorage.getItem('categoryId')
         data.categoryId = categoryId
 
-        new Site(data).createSite()
+        new Site(data).createSite(siteController)
     }
 }
 

@@ -12,7 +12,7 @@ export class Site {
         this.updatedAt = site.updatedAt
     }
 
-    drawSite(document) {
+    drawSite(document, siteController) {
         let parent = document.createElement('tr')
 
         let name = document.createElement('td')
@@ -42,7 +42,7 @@ export class Site {
         let actionsDelete = document.createElement('img')
         actionsDelete.src = 'https://img.icons8.com/ios-filled/50/delete-sign.png'
         actionsDelete.title = 'delete'
-        actionsDelete.onclick = () => this.deleteSite(`${this.id}-${this.name}`, document)
+        actionsDelete.onclick = () => this.deleteSite(`${this.id}-${this.name}`, document, siteController)
         actions.appendChild(actionsDelete)
 
         parent.id = `${this.id}-${this.name}`
@@ -58,31 +58,14 @@ export class Site {
         return day + '-' + month + '-' + year;
     }
 
-    createSite(callback) {
-        fetch(
-            `http://localhost:3000/sites`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(this)
-        })
-            .then(res => window.location.href = 'index.html')
-            .catch(err => console.log(err))
+    createSite(sitesController) {
+        sitesController.create(JSON.stringify(this), () => window.location.href = 'index.html')
     }
 
-    deleteSite(id, document) {
-        fetch(
-            `http://localhost:3000/sites/${id.split('-')[0]}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-            .then(res => {
-                const site = document.getElementById(id)
+    deleteSite(id, document, siteController) {
+        siteController.delete(id.split('-')[0], () => {
+            const site = document.getElementById(id)
                 site.remove()
-            })
-            .catch(err => console.log(err))
+        })
     }
 }
