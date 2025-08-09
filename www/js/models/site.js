@@ -46,6 +46,7 @@ export class Site {
         actions.appendChild(actionsDelete)
 
         parent.id = `${this.id}-${this.name}`
+        parent.className = 'child'
         parent.appendChild(actions)
 
         return parent

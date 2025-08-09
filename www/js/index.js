@@ -38,6 +38,7 @@ const drawCategories = (data) => {
 const drawSites = (data) => {
     data.forEach(site => {
         let parent = document.getElementsByClassName('sites-table')[0]
+
         let child = new Site(site).drawSite(document, sitesController)
         parent.appendChild(child)
     })
@@ -52,7 +53,14 @@ const onCategoryClicked = (event) => {
         currentCategory.className = 'not-selected'
         currentCategory = category
 
-        sitesController.getByCategoryId(category.id, drawSites)
+        let parent = document.getElementsByClassName('sites-table')[0]
+        let child = parent.lastElementChild;
+        while (child) {
+            parent.removeChild(child);
+            child = parent.lastElementChild;
+        }
+
+        sitesController.getByCategoryId(category.id.split('-')[0], drawSites)
     }
 }
 
