@@ -5,36 +5,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pass saver</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous">
     <link rel="stylesheet" href="styles/add.css">
   </head>
   <body>
-
     <h2 class="window-title">Pass saver</h2>
 
     <div class="window">
       <form>
-        <label for="url">URL</label>
-        <input type="text" id="url">
-
-        <label for="user">User</label>
-        <input type="text" id="user">
-
-        <label for="password">Password</label>
-        <div class="password-field">
-          <input type="password" id="password">
-          <img class="password-img"
-            src="https://img.icons8.com/?size=100&id=Y4bgsg61Fu94&format=png&color=000000">
+        <div class="form-floating has-validation div name">
+          <input type="text" class="form-control" id="name"
+            placeholder="Name">
+          <label for="name">Name</label>
         </div>
 
-        <label for="description">Description</label>
-        <textarea id="description"></textarea>
+        <div class="form-floating has-validation div url">
+          <input type="url" class="form-control" id="url" placeholder="URL">
+          <label for="url">URL</label>
+        </div>
+
+        <div class="input-group has-validation div user">
+          <span class="input-group-text">@</span>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="user"
+              placeholder="Username">
+            <label for="user">User</label>
+          </div>
+        </div>
+
+        <div>
+          <div class="input-group has-validation div password">
+            <div class="form-floating">
+              <input type="password" class="form-control" id="password"
+                placeholder="Password">
+              <label for="password">Password</label>
+            </div>
+            <span class="input-group-text autogenerate-pass">
+              <img class="autogenerate-password-img"
+                src="https://img.icons8.com/?size=100&id=9y7pMkdjUtdj&format=png&color=000000">
+            </span>
+            <span class="input-group-text show-pass">
+              <img class="show-password-img"
+                src="https://img.icons8.com/?size=100&id=Y4bgsg61Fu94&format=png&color=000000">
+            </span>
+          </div>
+          <div class="invalid-feedback invalid-pass div"></div>
+        </div>
+
+        <div class="form-floating has-validation div description">
+          <textarea class="form-control" placeholder="Description"
+            id="description" maxlength="500"></textarea>
+          <label for="description">Description</label>
+        </div>
 
         <div class="buttons">
-          <button type="button" class="cancel-btn">Cancel</button>
-          <button disabled type="submit" class="save-btn"
+          <button type="button"
+            class="btn btn-danger cancel-btn ">Cancel</button>
+          <button type="submit" class="btn btn-primary save-btn"
             onclick="return false">Save</button>
         </div>
       </form>
     </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"></script>
+    <script type="module" src="js/add.js"></script>
   </body>
 </html>

@@ -6,7 +6,6 @@ async function findAll(req, res) {
 
 async function add(req, res) {
     let result = await models.Site.build(req.body)
-    result.categoryId = req.params.id
 
     await result.save()
     res.send(result)
@@ -51,7 +50,7 @@ function init(app) {
     app.get('/sites', findAll)
     app.get('/sites/:id', findOne)
     app.get('/sites/category/:id', findByCategoryId)
-    app.post('/sites/:id', add)
+    app.post('/sites', add)
     app.delete('/sites/:id', deleteOne)
     app.put('/sites/:id', update)
 }

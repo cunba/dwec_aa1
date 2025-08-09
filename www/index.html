@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pass Saver</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous">
     <link rel="stylesheet" href="styles/index.css">
   </head>
 
@@ -15,12 +20,14 @@
 
     <div class="window">
       <div class="buttons">
-        <button id="add-category">Add category</button>
-        <button id="add-site">Add site</button>
+        <button type="button" class="btn btn-primary" id="add-category">Add
+          category</button>
+        <button type="button" class="btn btn-primary" id="add-site">Add
+          site</button>
       </div>
 
       <div class="categories-div">
-        <h3><strong>Categories</strong></h3>
+        <h4><strong>Categories</strong></h4>
         <ul class="categories-list">
         </ul>
       </div>
@@ -29,10 +36,10 @@
         <table>
           <thead>
             <tr>
-              <th>Site</th>
-              <th>User</th>
-              <th>Created at</th>
-              <th>Actions</th>
+              <th class="header">Site</th>
+              <th class="header">User</th>
+              <th class="header">Created at</th>
+              <th class="header">Actions</th>
             </tr>
           </thead>
           <tbody class="sites-table">
@@ -44,7 +51,10 @@
 
     </div>
 
-    <script src="js/index.js"></script>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"></script>
+    <script type="module" src="js/index.js"></script>
   </body>
 </html>
